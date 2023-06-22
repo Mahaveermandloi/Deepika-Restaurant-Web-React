@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Home from "./Components/Home";
+import About from "./Components/About";
+import Menu from "./Components/Menu";
+import { Routes, Route } from "react-router-dom";
+import Header from './Components/Header';
+import "./Styles/index.css";
+import Footer from "./Components/Footer";
+import Allitems from "./Components/Allitems";
+import Veg from "./Components/Veg";
+import NonVeg from "./Components/NonVeg";
+import Gallery from './Components/Gallery';
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/gallery" element={<Gallery />} />
+
+        {/* <Routes> */}
+          <Route path="/menu/allitems" element={<Allitems />} />
+          <Route path="/menu/veg" element={<Veg />} />
+          <Route path="/menu/nonveg" element={<NonVeg />} />
+        {/* </Routes> */}
+
+      </Routes> 
+      <Footer />
+    </>
   );
-}
+};
 
 export default App;
